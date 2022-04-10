@@ -1,10 +1,45 @@
+
 const express = require('express');
 const app = express();
-const { db } = require('./db/db.json')
-// WHEN I open the Note Taker
-// THEN I am presented with a landing page with a link to a notes page
-// WHEN I click on the link to the notes page
-// THEN I am presented with a page with existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column
+//const { db } = require('./db/db.json'); 
+const PORT = process.env.PORT || 3001; 
+const path = require('path');
+const fs = require('fs'); 
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
+
+//setting up express server 
+app.use(express.json());
+app.use(express.urlencoded({extended:true})); 
+
+//MAKE PUBLIC SERVER 
+app.use(express.static('public')); 
+
+//ROUTES 
+app.use(apiRoutes);
+app.use(htmlRoutes);
+
+
+
+
+
+app.post("/api/notes", (req,res)=>{
+console.log("New Note", req.body);
+///NEW NOTE SHULD LOOK LIKE 
+// {
+//     "title":"Test Title",
+//     "text":"Test text", 
+//     "id": "001"
+// } *
+
+//fs.writeFile()
+
+}); 
+
+app.delete("/api/notes/:id", (req,res)=>{
+
+}); 
+// plus empty fields to enter a new note title and the note’s text in the right-hand column
 // WHEN I enter a new note title and the note’s text
 // THEN a Save icon appears in the navigation at the top of the page
 // WHEN I click on the Save icon
@@ -27,6 +62,11 @@ const { db } = require('./db/db.json')
 
 
 
-app.listen(3001, () => {
-    console.log(`API server now on port 3001!`);
+app.listen(PORT, () => {
+    console.log(`API server now on port ${PORT}!`);
 });
+
+// http://localhost:3001/notes -- notes.html 
+// http://localhost:3001/api/notes -- Get all the notes from db.json  
+// http://localhost:3001/api/notes -- POST - New the post to db.json 
+// http://localhost:3001/api/notes/2 -- DELETE - delete a specific notes from the db.json 
