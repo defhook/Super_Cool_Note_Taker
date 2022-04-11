@@ -4,7 +4,7 @@ const express = require('express');
 const path = require('path');
 const uuid = require('uuid');
 const apiRoutes = require('./routes/api/notes');
-const htmlRoutes = require('./routes/htmlroutes/index');
+const htmlRoutes = require('./routes/html/htmlRoutes');
 
 // initialize express
 const app = express();
