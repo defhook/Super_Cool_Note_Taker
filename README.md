@@ -12,8 +12,6 @@ Create a note taker that stores data using express.js
 ## URL
 https://rocky-wildwood-58390.herokuapp.com/
 
-## screenshot
-![](/public/assets/images/notetaker.png)
 
 ## Contribution 
 Made by Alvin Badillo🙉
