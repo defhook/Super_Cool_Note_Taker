@@ -1,15 +1,1 @@
-[
-    {
-        "title":"Friday iterinary",
-        "text":"relax",
-        "id": "uuidv4()"
-    
-    },
-    {
-        "title":"Saturday iterinary",
-        "text":"watch movies"
-    
-    }
-]
-
-
+[{"title":"Friday iterinary","text":"relax","id":"uuidv4()"},{"title":"Saturday iterinary","text":"watch movies"}]
